@@ -125,3 +125,21 @@ height: 62px;
     top:-123px;
     left: calc(100% - 991px);
 }
+.why{
+    background-image:url("../images/whybg.png");
+    bsackground-position:top center;
+    background-size:initial;
+    padding-bottom:180px;
+}
+.why-title{
+    font-size: 64px;
+line-height: 80px;
+text-align: center;
+letter-spacing: 0.03em;
+text-transform: uppercase;
+    font-family: 'Merriweather',sans-serif;
+}
+.why-items{
+    margin-left:60px;
+    display:grid;
+}
