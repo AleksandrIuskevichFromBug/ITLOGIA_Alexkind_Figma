@@ -18,20 +18,45 @@ for (let i = 0; i < buttons.length; i++) {
 let burger = document.getElementById("burger");
 let name = document.getElementById("name");
 let phone = document.getElementById("phone");
-document.getElementById("order-action").onclick = function(){
+document.getElementById("order-action").onclick = function() {
     let hasError = false;
-    [burger, name, phone].forEach( item => {
-        if(!item.value) {
-         item.parentElement.style.background = "red";
+    [burger, name, phone].forEach(item => {
+        if (!item.value) {
+            item.parentElement.style.background = "red";
             hasError = true;
         } else {
-          item.parentElement.style.background = "";  
+            item.parentElement.style.background = "";
         }
     });
-    if (!hasError){
-        [burger, name, phone].forEach( item => {
+    if (!hasError) {
+        [burger, name, phone].forEach(item => {
             item.value = "";
         });
         alert("Спасибо за закакз! Мы скоро свяжемся с вами!");
     }
+}
+
+let prices = document.getElementsdByClassName("products-item-price");
+
+document.getElementById("change-currency").onclick = function(e){
+ let currentCurrency = e.target.innerText;  
+ let newCurrency = "$"; 
+ let coefficient = 1;   
+    if (currentCurrency === "$") {
+        newCurrency = "₽";
+        
+        coeficient = 80;
+        
+    } else if (currentCurrency === "₽"){
+        newCurrency = "BYN";
+        
+        coefficient = 3;
+    }
+
+   e.target.innerText = newCurrency; 
+
+    for (let i = 0; i < prices.lenght; i++) {
+        prices[i].innerText = +(prices[i].getAttribute("data-base-price") * coefficient).toFixed(1) + " " + newCurrency;
+    }
+        
 }
