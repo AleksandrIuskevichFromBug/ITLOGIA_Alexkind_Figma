@@ -36,7 +36,7 @@ document.getElementById("order-action").onclick = function() {
     }
 }
 
-let prices = document.getElementsdByClassName("products-item-price");
+let prices = document.getElementsByClassName("products-item-price");
 
 document.getElementById("change-currency").onclick = function(e){
  let currentCurrency = e.target.innerText;  
@@ -45,7 +45,7 @@ document.getElementById("change-currency").onclick = function(e){
     if (currentCurrency === "$") {
         newCurrency = "₽";
         
-        coeficient = 80;
+        coefficient = 80;
         
     } else if (currentCurrency === "₽"){
         newCurrency = "BYN";
@@ -55,7 +55,7 @@ document.getElementById("change-currency").onclick = function(e){
 
    e.target.innerText = newCurrency; 
 
-    for (let i = 0; i < prices.lenght; i++) {
+    for (let i = 0; i < prices.length; i++) {
         prices[i].innerText = +(prices[i].getAttribute("data-base-price") * coefficient).toFixed(1) + " " + newCurrency;
     }
         
