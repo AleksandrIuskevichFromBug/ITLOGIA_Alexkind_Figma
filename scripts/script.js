@@ -51,7 +51,13 @@ document.getElementById("change-currency").onclick = function(e){
         newCurrency = "BYN";
         
         coefficient = 3;
-    }
+    }else if (currentCurrency === 'BYN') {
+    newCurrency = '€';
+    coefficient = 0.9;
+} else if (currentCurrency === '€') {
+    newCurrency = '¥';
+    coefficient = 6.9;
+}
 
    e.target.innerText = newCurrency; 
 
